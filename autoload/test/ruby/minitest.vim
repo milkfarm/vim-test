@@ -70,7 +70,7 @@ function! test#ruby#minitest#executable() abort
     elseif filereadable('./bin/rake')
       return './bin/rake test'
     elseif filereadable('Gemfile') && get(g:, 'test#ruby#bundle_exec', 1)
-      return 'bundle exec rake test'
+      return 'bundle exec ruby -I"lib:test"'
     else
       return 'rake test'
     endif
